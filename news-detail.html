@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita - LSP Teknologi Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <a href="index.html">
+                    <img src="https://placehold.co/150x50/0088cc/white?text=LOGO+LSP" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#news-section">Berita Lainnya</a></li>
+
+                    <li>
+                        <button id="btn-theme" class="theme-toggle" title="Ganti Tema">
+                            🌙
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="article-container">
+        <h1 id="news-title" class="article-title">Memuat Judul...</h1>
+
+        <div class="article-meta">
+            <div class="meta-left">
+                <span id="news-author" class="author-name">...</span>
+                <span class="separator">•</span>
+                <span id="news-date" class="publish-date">...</span>
+            </div>
+            <div class="meta-right">
+                <button id="btn-share" class="share-btn">
+                    Share <span style="font-size:14px">🔗</span>
+                </button>
+            </div>
+        </div>
+
+        <img id="news-img" src="" alt="News Image" class="article-image">
+
+        <article id="news-content" class="article-body">
+            <p>Sedang mengambil data berita...</p>
+        </article>
+
+        <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">
+            <a href="index.html" style="color: var(--primary); font-weight: 600;">&larr; Kembali ke Beranda</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>LSP Teknologi Digital</h3>
+                <p>&copy; 2026 All Rights Reserved.</p>
+            </div>
+            </div>
+    </footer>
+
+    <script type="module" src="news-detail.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary: #0088cc;
+    --dark: #333;       /* Warna Teks Utama (Mode Terang) */
+    --light: #f4f7f6;   /* Background Halaman (Mode Terang) */
+    --white: #ffffff;   /* Background Card/Box (Mode Terang) */
+    --gray: #666;
+    --radius: 12px;
+    --shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Efek transisi halus saat ganti tema */
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* Container Umum */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   2. HEADER & NAVBAR
+   ========================================= */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo-img { height: 40px; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { font-weight: 500; font-size: 15px; color: var(--dark); }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+/* Dropdown Menu */
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 200px;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    top: 100%;
+    right: 0;
+    overflow: hidden;
+    z-index: 100;
+}
+.dropdown-content a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: var(--dark);
+}
+.dropdown-content a:hover { background-color: #f0f8ff; color: var(--primary); }
+.dropdown:hover .dropdown-content { display: block; }
+
+.btn-login {
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+.btn-login:hover { background: #006699; }
+
+/* Tombol Toggle Dark Mode */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: 0.3s;
+    margin-left: 15px;
+}
+.theme-toggle:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* =========================================
+   3. HERO SECTION & SEARCH
+   ========================================= */
+.hero-section {
+    background: linear-gradient(135deg, #0088cc 0%, #005f8f 100%);
+    color: white;
+    padding: 60px 0 80px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+.hero-subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; }
+
+.search-box {
+    background: var(--white); /* Mengikuti tema */
+    padding: 20px;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
+    align-items: flex-end;
+}
+
+.form-group { flex: 1; text-align: left; min-width: 200px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray); margin-bottom: 5px; }
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light); /* Input ikut tema */
+    color: var(--dark);
+}
+
+#btn-search {
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 46px;
+}
+#btn-search:hover { background: #006699; }
+
+/* =========================================
+   4. HOME SECTIONS (Event, News, Testimoni)
+   ========================================= */
+.section-light { background-color: var(--light); padding: 50px 0; }
+.section-white { background-color: var(--white); padding: 50px 0; }
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.section-header h2 { color: var(--dark); } /* Judul ikut tema */
+.section-header.center { justify-content: center; flex-direction: column; text-align: center; }
+.view-all { color: var(--primary); font-weight: 600; font-size: 14px; }
+
+/* Grid Systems */
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+/* Cards Styling */
+.card {
+    background: var(--white); /* Kartu ikut tema */
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; color: var(--dark); }
+.card-img { width: 100%; height: 160px; object-fit: cover; }
+.card h3, .card h4 { color: var(--dark); }
+
+/* Tombol di dalam Card */
+.btn-group { display: flex; gap: 10px; margin-top: auto; padding-top: 15px; }
+.btn-outline { flex: 1; border: 1px solid var(--primary); color: var(--primary); padding: 8px; border-radius: 6px; background: transparent; cursor: pointer; font-size: 12px; }
+.btn-fill { flex: 1; background: var(--primary); color: white; padding: 8px; border-radius: 6px; border: none; cursor: pointer; font-size: 12px; }
+
+/* =========================================
+   5. HALAMAN DETAIL BERITA
+   ========================================= */
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: var(--gray);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.author-name { font-weight: 600; color: var(--dark); }
+.separator { margin: 0 10px; }
+
+.share-btn {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.2s;
+    color: var(--dark);
+}
+.share-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.article-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 40px;
+}
+
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark); /* Ikut tema */
+    white-space: pre-wrap; 
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+footer {
+    background: #1a252f;
+    color: #ccc;
+    padding: 60px 0 30px;
+    margin-top: 50px;
+}
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.footer-col h3 { color: white; margin-bottom: 20px; font-size: 18px; }
+.footer-links li { margin-bottom: 10px; font-size: 14px; }
+.footer-links a:hover { color: var(--primary); margin-left: 5px; }
+.loading { grid-column: 1 / -1; text-align: center; color: var(--gray); font-style: italic; }
+
+
+/* =========================================
+   7. DARK MODE CONFIGURATION (FIXED)
+   ========================================= */
+body.dark-mode {
+    /* Background menjadi Gelap */
+    --light: #121212;   /* Latar Belakang Halaman */
+    --white: #1e1e1e;   /* Latar Belakang Box/Card */
+    
+    /* Teks harus TERANG (Abu muda/Putih) agar terbaca di background gelap */
+    /* JANGAN UBAH INI JADI HITAM! */
+    --dark: #e0e0e0;    
+    
+    --gray: #a0a0a0;
+    --shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
+/* --- Override Khusus Dark Mode (Agar Judul Lebih Kontras) --- */
+
+/* 1. Judul Section, Artikel, dan Author dipaksa PUTIH BERSIH */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3,
+body.dark-mode .article-title,
+body.dark-mode .author-name {
+    color: #ffffff !important;
+}
+
+/* 2. Dropdown Menu di Dark Mode */
+body.dark-mode .dropdown-content {
+    background-color: #252525;
+    border: 1px solid #444;
+}
+body.dark-mode .dropdown-content a {
+    color: #e0e0e0; /* Link dropdown terang */
+}
+body.dark-mode .dropdown-content a:hover {
+    background-color: #333;
+    color: var(--primary);
+}
+
+/* 3. Header & Navbar di Dark Mode */
+body.dark-mode header {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+body.dark-mode .nav-links a {
+    color: #e0e0e0; /* Link navbar terang */
+}
+body.dark-mode .nav-links a:hover {
+    color: var(--primary);
+}
+
+/* 4. Form Select di Dark Mode */
+body.dark-mode .form-group select {
+    background-color: #252525;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+/* 5. Detail Artikel di Dark Mode */
+body.dark-mode .article-meta {
+    border-bottom: 1px solid #333;
+}
+body.dark-mode .share-btn {
+    border-color: #444;
+    color: #e0e0e0;
+}
