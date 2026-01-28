@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Search Supabase</title>
+</head>
+<body>
+
+    <h1>Cari Jadwal Event</h1>
+
+    <div>
+        <label>Nama Event:</label>
+        <select id="filter-nama">
+            <option value="">-- Pilih Event --</option>
+        </select>
+        <br><br>
+
+        <label>Lokasi:</label>
+        <select id="filter-lokasi">
+            <option value="">-- Pilih Lokasi --</option>
+        </select>
+        <br><br>
+
+        <label>Tanggal Mulai:</label>
+        <select id="filter-tanggal">
+            <option value="">-- Pilih Tanggal --</option>
+        </select>
+        <br><br>
+
+        <button id="btn-search">CARI DATA</button>
+    </div>
+
+    <hr>
+
+    <h3>Hasil:</h3>
+    <div id="hasil-container">
+        Belum ada pencarian.
+    </div>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>
